@@ -1,0 +1,73 @@
+# Ignore build output directories
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ASP.NET Core environment files
+*.vs
+.vscode/
+.vs/
+
+# Log files
+*.log
+
+# Configuration files
+appsettings.*.json
+secret.json
+
+# JetBrains Rider/IDEA
+.idea/
+
+# Visual Studio Code workspace settings
+.vscode/
+
+# Windows files
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Publish output
+publish/
+
+# Resharper files
+_ReSharper*/
+*.DotSettings.user
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# Backup & auto-generated files
+project.lock.json
+project.fragment.lock.json
+
+# Entity Framework migrations
+Migrations/
+
+# Azure Web App publish settings
+.publishsettings
+
+# Mac system files
+.DS_Store
+
+# Rider
+.idea/
+
+# Coverage and testing
+*.coverage
+*.coveragexml
+*.testResults
+
+# Docker files
+docker-compose.override.yml

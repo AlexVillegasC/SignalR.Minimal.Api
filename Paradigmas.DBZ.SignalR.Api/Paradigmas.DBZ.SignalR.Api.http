@@ -1,0 +1,6 @@
+@Paradigmas.DBZ.SignalR.Api_HostAddress = http://localhost:5020
+
+GET {{Paradigmas.DBZ.SignalR.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
