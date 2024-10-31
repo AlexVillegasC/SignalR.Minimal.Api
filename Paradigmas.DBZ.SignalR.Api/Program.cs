@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Paradigmas.DBZ.SignalR.Api.SignalRHub;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,8 +36,9 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-
 builder.Services.AddSignalR();
+builder.Services.AddHostedService<DBZCharactersStream>();
+
 
 builder.Services.AddCors();
 
@@ -63,7 +65,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var app = builder.Build();
 
-app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(policy =>
+    policy.WithOrigins("http://localhost:5173") // Specify the allowed origin
+          .AllowAnyHeader()
+          .AllowAnyMethod()
+          .AllowCredentials() // Allow credentials for authentication
+);
 
 app.UseHttpsRedirection();
 
@@ -89,6 +96,8 @@ app.MapGet("/dbz/character", () =>
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.MapHub<DBZCharactersHub>("/hub/DBZCharactersHub");
 
 app.Run();
 
